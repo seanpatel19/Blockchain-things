@@ -33,13 +33,15 @@ from typing import Any
 # 5. Assign a default value to the `timestamp` attribute by using the following
 # code: `datetime.utcnow().strftime("%H:%M:%S")`
 
-# @TODO
+@dataclass
 # Define a class `Block` and add the `@dataclass` decorator.
-# YOUR CODE HERE!
-# YOUR CODE HERE!
 
-    # @TODO:
-    # Define an attribute named `data` with a type of `Any`.
+
+@dataclass
+class Block:
+    data: Any
+    creator_id: int
+    timestamp: str = datetime.utcnow().strftime("%H:%M:%S")
     # YOUR CODE HERE!
 
     # @TODO:
@@ -63,7 +65,7 @@ st.markdown("## Store Data in a Block")
 # @TODO:
 # Referencing the Streamlit library, use the `text_input` function and pass the
 # parameter "Block Data".
-input_data =  # YOUR CODE HERE!
+input_data =  st.text_input("Block Data")
 
 ################################################################################
 # Step 3:
@@ -82,13 +84,15 @@ input_data =  # YOUR CODE HERE!
 
 # @TODO:
 # Create a Streamlit `button`, and pass the “Add Block” parameter to it.
-# YOUR CODE HERE!
+if st.button("Add Block"):
+    new_block = Block(data=input_data,creator_id =43)
+    st.write(new_block)
 
     # @TODO:
     # Create an instance of the `Block` data class called `new_block`
     # Use the user input from Step 2 for the `data` attribute
     # Use the integer 42 for the `creator_id`
-    new_block =  # YOUR CODE HERE!
+    
 
     # @TODO:
     # Use the `st.write` function to display the new block.
