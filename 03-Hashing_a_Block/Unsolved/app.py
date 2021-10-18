@@ -38,7 +38,7 @@ class Block:
 
     # @TODO:
     # Add a new function called `hash_block`
-    # YOUR CODE HERE!
+def hash_block():
 
     # @TODO:
     # Add an instance of the `sha256` hashing function
