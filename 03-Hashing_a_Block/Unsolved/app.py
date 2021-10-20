@@ -34,15 +34,24 @@ import hashlib
 class Block:
     data: Any
     creator_id: int
+    seller_id: int
     timestamp: str = datetime.utcnow().strftime("%H:%M:%S")
+    trade_time: str = datetime.utcnow().strftime("%H:%M:%S")
 
     # @TODO:
     # Add a new function called `hash_block`
-def hash_block():
+    def hash_block(self):
 
     # @TODO:
     # Add an instance of the `sha256` hashing function
-    # YOUR CODE HERE!
+        sha =hashlib.sha256()
+
+        trade_time_encoded= self.trade_time.encode()
+        sha.update(trade_time_encoded)
+        shares_encoded =str(self.shares).encode()
+        sha.update(shares_encoded)
+        return sha.hexdigest()
+
 
     # @TODO:
     # Encode the Block's data attribute
